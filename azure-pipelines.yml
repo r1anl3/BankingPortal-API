@@ -6,7 +6,7 @@
 trigger:
 - main
 
-pool: Azure Pipelines
+pool: default
 
 steps:
 - task: Maven@3
