@@ -1,0 +1,20 @@
+
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: bankportal-api
+spec:
+  replicas: 1
+  selector:
+  matchLabels:
+    app: bankportal-api
+  template: 
+    spec:
+      containers:
+        - name: bankportal-api
+          image: 'rianle/bankportal-api'
+          ports:
+            - containerPort: 8180
+              protocol: TCP
+          imagePullPolicy: IfNotPresent
