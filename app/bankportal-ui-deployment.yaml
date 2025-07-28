@@ -1,0 +1,23 @@
+
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: bankportal-ui
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bankportal-ui
+  template: 
+    metadata:
+      labels:
+        app: bankportal-ui
+    spec:
+      containers:
+        - name: bankportal-ui
+          image: 'rianle/bankportal-ui:ocp4'
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          imagePullPolicy: IfNotPresent

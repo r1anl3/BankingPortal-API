@@ -1,0 +1,18 @@
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: bankportal-ui
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: bank.apps.lab.rke.lan
+      http:
+        paths:
+          - backend:
+              service:
+                name: bankportal-ui
+                port:
+                  number: 8080
+            path: /
+            pathType: Prefix
