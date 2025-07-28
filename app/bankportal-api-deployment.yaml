@@ -10,6 +10,9 @@ spec:
     matchLabels:
       app: bankportal-api
   template: 
+    metadata:
+    labels:
+      app: bankportal-api
     spec:
       containers:
         - name: bankportal-api
