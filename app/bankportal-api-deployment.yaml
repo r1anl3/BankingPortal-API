@@ -7,8 +7,8 @@ metadata:
 spec:
   replicas: 1
   selector:
-  matchLabels:
-    app: bankportal-api
+    matchLabels:
+      app: bankportal-api
   template: 
     spec:
       containers:
