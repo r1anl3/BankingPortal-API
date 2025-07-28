@@ -5,7 +5,7 @@ apiVersion: apps/v1
 metadata:
   name: bankportal-api
 spec:
-  replicas: 1
+  replicas: 0
   selector:
     matchLabels:
       app: bankportal-api
