@@ -15,7 +15,7 @@ COPY src ./src
 # Package the application
 RUN mvn clean package -DskipTests
 # ---- Stage 2: Run with JRE only ----
-FROM image-registry.openshift-image-registry.svc:5000/openshift/java:openjdk-11-ubi8
+FROM docker.io/openjdk:11-jre-slim
 # Set working directory
 WORKDIR /app
 
