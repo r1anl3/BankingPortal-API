@@ -5,7 +5,7 @@ apiVersion: apps/v1
 metadata:
   name: bankportal-api
 spec:
-  replicas: 0
+  replicas: 1
   selector:
     matchLabels:
       app: bankportal-api
@@ -21,3 +21,16 @@ spec:
             - containerPort: 8180
               protocol: TCP
           imagePullPolicy: IfNotPresent
+          env:
+          - name: SPRING_DATASOURCE_URL
+            value: "jdbc:mysql://mysql:3306/bankingapp"
+          - name: SPRING_DATASOURCE_USERNAME
+            valueFrom:
+              secretKeyRef:
+                name: api-db-credentials
+                key: DB_USER
+          - name: SPRING_DATASOURCE_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: api-db-credentials
+                key: DB_PASSWORD
