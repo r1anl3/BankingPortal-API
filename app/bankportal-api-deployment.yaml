@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: bankportal-api
-          image: 'rianle/bankportal-api:latest'
+          image: 'rianle/bankportal-api:jdk17'
           ports:
             - containerPort: 8180
               protocol: TCP
