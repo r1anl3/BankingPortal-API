@@ -21,3 +21,11 @@ spec:
             - containerPort: 8080
               protocol: TCP
           imagePullPolicy: IfNotPresent
+          volumeMounts:
+          - name: nginx-conf # Mount the volume
+            mountPath: /etc/nginx/conf.d/default.conf # Overwrite the default config
+            subPath: default.conf # Use the key from the ConfigMap
+      volumes:
+      - name: nginx-conf # Define the volume from the ConfigMap
+        configMap:
+          name: angular-nginx-conf
